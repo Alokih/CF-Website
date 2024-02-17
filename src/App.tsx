@@ -1,10 +1,21 @@
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import Resources from "./pages/Resources";
 
-function App() {
+const App: React.FC = () => {
+    return (
+        <div className="App">
+            <Router>
+                <div>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/resources" element={<Resources />} />
+                    </Routes>
+                </div>
+            </Router>
+        </div>
+    );
+};
 
-  return (
-    <>CF Practice Website</>
-  )
-}
-
-export default App
+export default App;
