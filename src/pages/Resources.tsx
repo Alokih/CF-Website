@@ -1,5 +1,5 @@
 
-const Resources = () => {
+const Resources: React.FC = () => {
   return (
     <div>Resources Page</div>
   )

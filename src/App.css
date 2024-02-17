@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+
+body {
+    background: #dbdada;
+    margin: 0;
+    font-family: "Poppins";
+}
+
+.navbar {
+    background: #c9c9c8;
+    max-width: 1400px;
+    height: 40px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .logo,
+.navbar .links,
+.navbar .auth {
+    transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover,
+.navbar .links:hover,
+.navbar .auth:hover {
+    transform: translateY(-2px);
+}
+
+
+.navbar .logo {
+    margin-left: 0px;
+    color: #333;
+    cursor: pointer;
+    font-size: 27px;
+}
+
+.navbar .links {
+    color: #333;
+    cursor: pointer;
+    font-size: 17px;
+    margin-left: 700px;
+}
+
+.navbar .auth {
+    color: #333;
+    cursor: pointer;
+    font-size: 17px;
+    margin-right: 50px;
+}
