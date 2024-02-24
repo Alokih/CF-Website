@@ -1,53 +1,70 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+html {
+    font-family: "Courier New", Courier, monospace;
+    image-rendering: -webkit-optimize-contrast !important;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
 
 body {
-    background: #dbdada;
+    background: rgb(243, 248, 255);
     margin: 0;
-    font-family: "Poppins";
 }
 
 .navbar {
-    background: #c9c9c8;
-    max-width: 1400px;
-    height: 40px;
+    background: rgb(243, 248, 255);
+    max-width: 100%; 
+    height: 60px;
     padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-decoration: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
 }
+
 
 .navbar .logo,
 .navbar .links,
-.navbar .auth {
+.navbar .github-icon {
     transition: transform 0.3s ease;
 }
 
 .navbar .logo:hover,
-.navbar .links:hover,
-.navbar .auth:hover {
+.navbar .github-icon:hover {
     transform: translateY(-2px);
 }
 
-
+.navbar .links:hover {
+    transform: translateY(-2px);
+    color: #007aff;
+}
 .navbar .logo {
-    margin-left: 0px;
+    margin-left: 20px; 
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
     color: #333;
     cursor: pointer;
-    font-size: 27px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .navbar .links {
     color: #333;
     cursor: pointer;
     font-size: 17px;
-    margin-left: 700px;
+    margin-left: auto;
+    margin-right: 100px; 
 }
 
-.navbar .auth {
-    color: #333;
+.navbar .github-icon {
     cursor: pointer;
-    font-size: 17px;
-    margin-right: 50px;
+    font-size: 24px;
+    margin-right: 80px; 
+    padding-top: 12px;
 }

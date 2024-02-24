@@ -1,4 +1,4 @@
-// import { FaGithub } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Navbar: React.FC = () => {
@@ -24,13 +24,10 @@ const Navbar: React.FC = () => {
                     Resources
                 </p>
             </div>
-            {/* <div className="navbar-github">
+            <div className="github-icon">
                 <a href="https://github.com/Aloksh42">
                     <FaGithub />
                 </a>
-            </div> */}
-            <div className="auth">
-                <p>Login</p>
             </div>
         </nav>
     );
