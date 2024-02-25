@@ -51,7 +51,7 @@ const Home: React.FC = () => {
         <div className="container">
             <p>
                 <strong>Tip:</strong>Going to solution without attempting the
-                question is waste of your time{" "}
+                question is waste of your time
             </p>
             <br />
             <br />

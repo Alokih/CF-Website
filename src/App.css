@@ -1,5 +1,5 @@
 html {
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Courier New", Courier, "Verdana";
     image-rendering: -webkit-optimize-contrast !important;
     scroll-behavior: smooth;
 }
@@ -84,27 +84,40 @@ body {
     flex-direction: column;
     height: 100vh;
     flex: 1;
-    padding-top: 40px;
     position: relative;
     z-index: 1;
     padding-top: 100px;
 }
+
 .table {
     width: 100%;
     border-collapse: collapse;
 }
 
 .table th {
-    color: rgb(29, 28, 28); 
+    color: rgb(29, 28, 28);
     padding: 10px;
     font-size: 16px;
     text-align: center;
     font-weight: 600;
     border: 1px solid #b7b2b2;
+    background-color: rgb(215, 233, 250);
 }
 
 .table td {
     padding: 8px;
     text-align: center;
     border: 1px solid #b7b2b2;
+}
+
+.resource-page {
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    padding-top: 100px;
+    margin-left: 40px;
+}
+
+a {
+    text-decoration: none;
 }

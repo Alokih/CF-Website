@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
                         navigate("/");
                     }}
                 >
-                    CF Practice
+                    CF Website
                 </p>
             </div>
             <div className="links">
@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
                 </p>
             </div>
             <div className="github-icon">
-                <a href="https://github.com/Aloksh42">
+                <a href="https://github.com/Aloksh42/CF-Website">
                     <FaGithub />
                 </a>
             </div>
