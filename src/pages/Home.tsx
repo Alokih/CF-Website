@@ -10,13 +10,42 @@ interface Problem {
 
 const Home: React.FC = () => {
     const [problems, setProblems] = useState<Problem[]>([]);
+    const [solvedProblems, setSolvedProblems] = useState<number[]>([]);
 
     useEffect(() => {
+        const savedSolvedProblems = localStorage.getItem("solvedProblems");
+        if (savedSolvedProblems) {
+            setSolvedProblems(JSON.parse(savedSolvedProblems));
+        }
+
         fetch("/db.json")
             .then((res) => res.json())
             .then((data) => setProblems(data))
             .catch((error) => console.error("Error fetching problems:", error));
     }, []);
+
+    const handleCheckbox = (id: number) => {
+        const index = solvedProblems.indexOf(id);
+
+        if (index === -1) {
+            const updatedSolvedProblems = [...solvedProblems, id];
+            setSolvedProblems(updatedSolvedProblems);
+            localStorage.setItem(
+                "solvedProblems",
+                JSON.stringify(updatedSolvedProblems)
+            );
+        } else {
+            const updatedSolvedProblems = [
+                ...solvedProblems.slice(0, index),
+                ...solvedProblems.slice(index + 1),
+            ];
+            setSolvedProblems(updatedSolvedProblems);
+            localStorage.setItem(
+                "solvedProblems",
+                JSON.stringify(updatedSolvedProblems)
+            );
+        }
+    };
 
     return (
         <div className="container">
@@ -38,7 +67,16 @@ const Home: React.FC = () => {
                 </thead>
                 <tbody>
                     {problems.map((problem, index) => (
-                        <tr key={problem.id}>
+                        <tr
+                            key={problem.id}
+                            style={{
+                                backgroundColor: solvedProblems.includes(
+                                    problem.id
+                                )
+                                    ? "lightgreen"
+                                    : "",
+                            }}
+                        >
                             <td>{index + 1}.</td>
                             <td>{problem.problemStatement}</td>
                             <td>
@@ -51,7 +89,15 @@ const Home: React.FC = () => {
                             </td>
                             <td>{problem.rating}</td>
                             <td>
-                                <input type="checkbox" />
+                                <input
+                                    type="checkbox"
+                                    checked={solvedProblems.includes(
+                                        problem.id
+                                    )}
+                                    onChange={() => {
+                                        handleCheckbox(problem.id);
+                                    }}
+                                />
                             </td>
                         </tr>
                     ))}
