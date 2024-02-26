@@ -2,6 +2,7 @@ html {
     font-family: "Courier New", Courier, "Verdana";
     image-rendering: -webkit-optimize-contrast !important;
     scroll-behavior: smooth;
+    font-weight: 500;
 }
 
 ::-webkit-scrollbar {
@@ -118,6 +119,8 @@ body {
     margin-left: 40px;
 }
 
-a {
+.resource-page a {
     text-decoration: none;
+    color: red;
 }
+
