@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Resources from "./pages/Resources";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
     return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
                         <Route path="/resources" element={<Resources />} />
                     </Routes>
                 </div>
+                <Footer />
             </Router>
         </div>
     );
