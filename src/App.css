@@ -134,3 +134,14 @@ body {
     justify-content: center;
     width: 100%;
 }
+
+button{
+    margin: 2px;
+    padding: auto;
+}
+
+input{
+    width: 60px;
+    padding: 1px;
+    margin-right: 2px;
+}

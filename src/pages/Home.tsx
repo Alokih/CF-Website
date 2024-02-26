@@ -11,6 +11,9 @@ interface Problem {
 const Home: React.FC = () => {
     const [problems, setProblems] = useState<Problem[]>([]);
     const [solvedProblems, setSolvedProblems] = useState<number[]>([]);
+    const [minRating, setMinRating] = useState<number>();
+    const [maxRating, setMaxrating] = useState<number>();
+    const [filterApllied, setFilterApplied] = useState<boolean>(false);
 
     useEffect(() => {
         const savedSolvedProblems = localStorage.getItem("solvedProblems");
@@ -47,6 +50,38 @@ const Home: React.FC = () => {
         }
     };
 
+    const handleminRating = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setMinRating(parseInt(event.target.value));
+    };
+
+    const handlemaxRating = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setMaxrating(parseInt(event.target.value));
+    };
+
+    const applyFilter = () => {
+        setFilterApplied(true);
+    };
+
+    const resetFilter = () => {
+        setMinRating(undefined);
+        setMaxrating(undefined);
+        setFilterApplied(false);
+        window.location.reload();
+    };
+
+    let filteredProblems: Problem[] = problems;
+
+    if (
+        filterApllied &&
+        typeof minRating === "number" &&
+        typeof maxRating === "number"
+    ) {
+        filteredProblems = problems.filter(
+            (problem) =>
+                problem.rating >= minRating && problem.rating <= maxRating
+        );
+    }
+
     return (
         <div className="container">
             <p>
@@ -54,6 +89,24 @@ const Home: React.FC = () => {
                 question is waste of your time
             </p>
             <br />
+            <div>
+                <label>
+                    <strong> Difficulty:</strong>
+                    <input
+                        type="number"
+                        value={minRating}
+                        onChange={handleminRating}
+                    />
+                    -
+                    <input
+                        type="number"
+                        value={maxRating}
+                        onChange={handlemaxRating}
+                    />
+                </label>
+                <button onClick={applyFilter}>Apply</button>
+                <button onClick={resetFilter}>Reset</button>
+            </div>
             <br />
             <table className="table">
                 <thead>
@@ -66,7 +119,7 @@ const Home: React.FC = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {problems.map((problem, index) => (
+                    {filteredProblems.map((problem, index) => (
                         <tr
                             key={problem.id}
                             style={{
