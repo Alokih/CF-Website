@@ -15,7 +15,7 @@ const Home: React.FC = () => {
     const [maxRating, setMaxrating] = useState<number>();
     const [filterApllied, setFilterApplied] = useState<boolean>(false);
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const problemsPerPage: number = 10;
+    const problemsPerPage: number = 20;
 
     useEffect(() => {
         const savedSolvedProblems = localStorage.getItem("solvedProblems");
@@ -93,7 +93,7 @@ const Home: React.FC = () => {
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
     };
 
     return (
@@ -145,11 +145,19 @@ const Home: React.FC = () => {
                             }}
                         >
                             <td>{startIdx + index + 1}.</td>
-                            <td>{problem.problemStatement}</td>
+                            <td>
+                                
+                                <a
+                                    href={problem.problemLink}
+                                    style={{ textDecoration: "none", color:"blue"}}
+                                >
+                                {problem.problemStatement}
+                                </a>
+                            </td>
                             <td>
                                 <a
                                     href={problem.solutionLink}
-                                    style={{ textDecoration: "none" }}
+                                    style={{ textDecoration: "none", color:"blue" }}
                                 >
                                     Solution
                                 </a>

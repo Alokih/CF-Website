@@ -70,24 +70,15 @@ body {
     color: #007aff;
 }
 
-@media screen and (max-width: 768px) {
-    .navbar .logo {
-        margin-left: 4px;
-    }
-
-    .navbar .links {
-        margin-left: 18px;
-    }
-}
-
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: calc(100vh - 60px);
     flex: 1;
     position: relative;
     z-index: 1;
     padding-top: 100px;
+    margin-bottom: 10px;
 }
 
 .table {
@@ -131,16 +122,16 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
     padding: 1px;
-    justify-content: center;
     width: 100%;
+    bottom: 0;
 }
 
-button{
+button {
     margin: 2px;
     padding: auto;
 }
 
-input{
+input {
     width: 60px;
     padding: 1px;
     margin-right: 2px;
@@ -153,4 +144,17 @@ input{
     margin-top: 30px;
     padding: auto;
     margin-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar .logo {
+        margin-left: 4px;
+    }
+
+    .navbar .links {
+        margin-left: 18px;
+    }
+    .footer {
+        min-width: 420px;
+    }
 }

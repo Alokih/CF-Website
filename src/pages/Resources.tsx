@@ -1,6 +1,5 @@
 const Resources: React.FC = () => {
-
-    const pdf = '/src/assets/CP Handbook.pdf';
+    const pdf = "/src/assets/CP Handbook.pdf";
 
     return (
         <div className="resource-page">
@@ -20,8 +19,7 @@ const Resources: React.FC = () => {
                 </a>
             </p>
             <p>
-                3. Codeforces Official Website (Problem Solving +
-                Contest):
+                3. Codeforces Official Website (Problem Solving + Contest):
                 <a href="https://codeforces.com">[Click]</a>
             </p>
 
