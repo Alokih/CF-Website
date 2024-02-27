@@ -14,6 +14,8 @@ const Home: React.FC = () => {
     const [minRating, setMinRating] = useState<number>();
     const [maxRating, setMaxrating] = useState<number>();
     const [filterApllied, setFilterApplied] = useState<boolean>(false);
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const problemsPerPage: number = 10;
 
     useEffect(() => {
         const savedSolvedProblems = localStorage.getItem("solvedProblems");
@@ -60,14 +62,19 @@ const Home: React.FC = () => {
 
     const applyFilter = () => {
         setFilterApplied(true);
+        setCurrentPage(1);
     };
 
     const resetFilter = () => {
         setMinRating(undefined);
         setMaxrating(undefined);
         setFilterApplied(false);
+        setCurrentPage(1);
         window.location.reload();
     };
+
+    const startIdx = (currentPage - 1) * problemsPerPage;
+    const endIdx = currentPage * problemsPerPage;
 
     let filteredProblems: Problem[] = problems;
 
@@ -81,6 +88,13 @@ const Home: React.FC = () => {
                 problem.rating >= minRating && problem.rating <= maxRating
         );
     }
+
+    const displayedProblems = filteredProblems.slice(startIdx, endIdx);
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+        window.scrollTo(0,0);
+    };
 
     return (
         <div className="container">
@@ -119,7 +133,7 @@ const Home: React.FC = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredProblems.map((problem, index) => (
+                    {displayedProblems.map((problem, index) => (
                         <tr
                             key={problem.id}
                             style={{
@@ -130,7 +144,7 @@ const Home: React.FC = () => {
                                     : "",
                             }}
                         >
-                            <td>{index + 1}.</td>
+                            <td>{startIdx + index + 1}.</td>
                             <td>{problem.problemStatement}</td>
                             <td>
                                 <a
@@ -156,6 +170,20 @@ const Home: React.FC = () => {
                     ))}
                 </tbody>
             </table>
+            <div className="pagination-btn">
+                <button
+                    disabled={currentPage === 1}
+                    onClick={() => handlePageChange(currentPage - 1)}
+                >
+                    Previous
+                </button>
+                <button
+                    disabled={displayedProblems.length < problemsPerPage}
+                    onClick={() => handlePageChange(currentPage + 1)}
+                >
+                    Next
+                </button>
+            </div>
         </div>
     );
 };
