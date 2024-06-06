@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
                 </p>
             </div>
             <div className="github-icon">
-                <a href="https://github.com/Aloksh42/CF-Website">
+                <a href="https://github.com/Alokih/CF-Website">
                     <FaGithub />
                 </a>
             </div>

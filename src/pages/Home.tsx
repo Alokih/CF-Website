@@ -98,12 +98,12 @@ const Home: React.FC = () => {
 
     return (
         <div className="container">
-            <p>
+            <p style={{marginLeft:"38px"}}>
                 <strong>Tip:</strong>Going to solution without attempting the
                 question is waste of your time
             </p>
             <br />
-            <div>
+            <div style={{marginLeft:"38px"}}>
                 <label>
                     <strong> Difficulty:</strong>
                     <input
